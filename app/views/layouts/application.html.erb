@@ -8,11 +8,19 @@
 </head>
 <body>
  <% if user_signed_in? %>
-	Sudah Login
+	
+haloo <%= current_user.email %> <%= link_to("Logout", destroy_user_session_path, :method => :delete) %>
+<%= link_to("Post",posts_path) %>
 <% else %>
- Belum login
+Belum Login <%= link_to("Login", new_user_session_path) %>
 <% end %>
 <%= yield %>
 
 </body>
 </html>
+<!-- 
+div.header
+if<% user_signed_in?%>
+
+<%%>
+</div> -->

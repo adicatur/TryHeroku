@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before action :cek_auth, only: [:index, :edit: :update :destroy ]
   skip_before_filter :verify_authenticity_token
   # GET /posts
   # GET /posts.json
@@ -15,6 +16,13 @@ class PostsController < ApplicationController
     @komentar.save
     redirect_to root_path
     
+  end
+
+  def cek_auth
+    unless user_signed_in
+      redirect_to root path and return
+      
+    end
   end
 
   # GET /posts/1

@@ -1,0 +1,10 @@
+<div class="header">
+if <% user_signed_in?%>
+
+haloo 
+<%=current_user.email %> <%link_to("Logout",destroy_user_sessoion_path, method=>delete) %>
+link_to("Post",posts path) %>
+<% else %>
+<%=link_to("Login", new_user_session_path) %>
+<% end %>
+</div>
