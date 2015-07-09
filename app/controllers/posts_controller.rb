@@ -19,8 +19,12 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.json
-  def show
-  end
+  # def show
+
+  # end
+def show 
+before_action :authenticate_user!
+end 
 
   # GET /posts/new
   def new
