@@ -1,11 +1,20 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  skip_before_filter :verify_authenticity_token
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
     # render 'home/site'
+  end
+
+  def komen
+    @komentar = Post.find(params[:post_id]).komens.new
+    @komentar.email = params[:isi_dari_email]
+    @komentar.isi_komen = params[:isi_dari_komentar]
+    @komentar.save
+    redirect_to root_path
+    
   end
 
   # GET /posts/1
