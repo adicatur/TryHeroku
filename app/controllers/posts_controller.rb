@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before action :cek_auth, only: [:index, :edit: :update :destroy ]
+  before_action :cek_auth, only: [:index, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token
+  before_action :authenticate_user!
   # GET /posts
   # GET /posts.json
   def index
@@ -19,19 +20,20 @@ class PostsController < ApplicationController
   end
 
   def cek_auth
-    unless user_signed_in
-      redirect_to root path and return
+    unless user_signed_in?
+      redirect_to root_path and return 
       
     end
   end
 
+  
   # GET /posts/1
   # GET /posts/1.json
   # def show
 
   # end
 def show 
-before_action :authenticate_user!
+ 
 end 
 
   # GET /posts/new
