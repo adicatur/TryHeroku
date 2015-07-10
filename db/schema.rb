@@ -13,8 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20150709162223) do
 
-# Could not dump table "komen" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "komen", force: true do |t|
+    t.text     "email"
+    t.text     "isi_komen"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "gambar"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "title"
