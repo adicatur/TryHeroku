@@ -23,6 +23,11 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+gem "paperclip", "~> 4.3"
+# gem "rmagick"
+
+# gem "carrierwave"
+
 gem 'pg'  , group: :production
 
   group :production do 

@@ -14,6 +14,8 @@ class PostsController < ApplicationController
     @komentar = Post.find(params[:post_id]).komens.new
     @komentar.email = params[:isi_dari_email]
     @komentar.isi_komen = params[:isi_dari_komentar]
+    @komentar.gambar = params[:isi_dari_gambar]
+
     @komentar.save
     redirect_to root_path
     
